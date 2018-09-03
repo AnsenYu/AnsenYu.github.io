@@ -7,7 +7,7 @@
 
         const ironman = window.ironman;
         //防止别的网页应用 调用window.ironman 对象
-        window.ironman = null;
+        // window.ironman = null;
         // If you want to require a specific version of Scatter
         ironman.requireVersion(1.2);
         const foNetwork = {
@@ -52,9 +52,12 @@
         );
     })
     }
+ 
 
     function cb(ironman, fo, requiredFields, account) {
-
+      if ($('#vote_with_ironman').attr("onclick")) {
+        $('#vote_with_ironman').removeAttr("onclick");
+      }
       $('#vote_with_ironman').on('click', function (event) {
         event.preventDefault();
         let vote_info = $('#vote_with_ironman').text()
